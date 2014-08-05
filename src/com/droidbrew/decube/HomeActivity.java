@@ -57,8 +57,8 @@ public class HomeActivity extends Activity implements SensorEventListener {
 		qm = ((DecubeApp) getApplication()).getQuestionManager();
 		
 		wb = ((WebView) findViewById(R.id.result));
-		wb.setBackgroundColor(0x00000000);
-		String summary = "<html><body> <br/><br/><br/> <h2 align='center'>Shake to get answers</h2> </body></html>";
+		wb.setBackgroundColor(Color.TRANSPARENT);
+		String summary = "<html><body style='background-color:transparent'> <br/><br/><br/> <h2 align='center'>Shake to get answers</h2> </body></html>";
 		wb.loadDataWithBaseURL(null, summary, "text/html", "utf-8", null);
 
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -97,7 +97,7 @@ public class HomeActivity extends Activity implements SensorEventListener {
 	}
 	
 	public void randomResult(){
-		String str = "<html><body align='center'> <br />";
+		String str = "<html><body align='center' style='background-color:transparent'> <br /> <h2>";
 		try {
 			for(int i : ids) {
 				Question question = qm.findQuestionById(i);
@@ -114,9 +114,9 @@ public class HomeActivity extends Activity implements SensorEventListener {
 		} catch(Exception ex) {
 			Log.e(HomeActivity.class.getName(), ex.getMessage(), ex);
 		}
-		str += "<br /></body></html>";
+		str += "</h2> <br /></body></html>";
 		
-		wb.setBackgroundColor(0x00000000);
+		wb.setBackgroundColor(Color.TRANSPARENT);
 		wb.loadDataWithBaseURL(null, str, "text/html", "utf-8", null);
 		wb.startAnimation(anim);
 	}
@@ -190,6 +190,7 @@ public class HomeActivity extends Activity implements SensorEventListener {
 		case R.id.menu_settings:
 			Intent intent = new Intent(this, QuestionActivity.class);
 			startActivity(intent);
+			finish();
 			break;
 		}
 		return true;

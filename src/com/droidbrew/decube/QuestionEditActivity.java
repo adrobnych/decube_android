@@ -68,7 +68,13 @@ public class QuestionEditActivity extends Activity {
 			}
 		});
 	}
-
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent(this, QuestionActivity.class);
+		startActivity(intent);
+		finish();
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_question_edit, menu);
@@ -105,8 +111,10 @@ public class QuestionEditActivity extends Activity {
 					return;
 				}
 				try {
-					questionDao.create(new Question(questionEditText.getText()
-							.toString()));
+					String str = questionEditText.getText().toString();
+					if(!str.substring(str.length() - 1, str.length()).equals("?"))
+						str += "?";
+					questionDao.create(new Question(str));
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

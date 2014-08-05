@@ -1,10 +1,12 @@
 package com.droidbrew.decube;
 
 import java.sql.SQLException;
+
 import com.droidbrew.decube.adapter.AnswerAdapter;
 import com.droidbrew.decube.model.Answer;
 import com.droidbrew.decube.model.AnswerManager;
 import com.j256.ormlite.dao.Dao;
+
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
@@ -68,6 +70,14 @@ public class AnswerActivity extends Activity {
 				finish();
 			}
 		});
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent(this, EditItemQuestionActivity.class);
+		intent.putExtra("questionId", questionId);
+		startActivity(intent);
+		finish();
 	}
 
 	@Override

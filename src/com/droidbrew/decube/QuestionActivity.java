@@ -12,6 +12,10 @@ import com.droidbrew.decube.model.QuestionManager;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,18 +59,22 @@ public class QuestionActivity extends Activity {
 		list.setAdapter(questionCheckAdapter);
 		list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-		Button getValue = (Button) findViewById(R.id.get_value);
-		getValue.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				resHome();
-			}
-		});
 	}
 
 	public void resHome() {
-		if (questionCheckAdapter.getState().size() == 0)
+		if (questionCheckAdapter.getState().size() == 0) {
+			final AlertDialog.Builder build = new AlertDialog.Builder(this);
+			build.setTitle("You must select at least one question");
+			build.setNegativeButton("Ok", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+				}
+			});
+			build.show();
+
 			return;
+		}
+
 		int[] ids = new int[questionCheckAdapter.getState().size()];
 		int a = 0;
 		List<Answer> randomList = new ArrayList<Answer>();
@@ -87,14 +95,17 @@ public class QuestionActivity extends Activity {
 				Log.e(QuestionActivity.class.getName(), e.getMessage(), e);
 			}
 			a++;
-		}
-		if (randomList.size() == 0)
-			return;
 
+		}
 		Intent intent = new Intent(QuestionActivity.this, HomeActivity.class);
 		intent.putExtra("ids", ids);
 		startActivity(intent);
 		finish();
+	}
+
+	@Override
+	public void onBackPressed() {
+		resHome();
 	}
 
 	@Override

@@ -6,7 +6,7 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_question_edit">Edit</string>
     <string name="menu_question_edit_add">Add</string>
-    <string name="menu_answer">Answer</string>
+    <string name="menu_answer">Answers</string>
     <string name="menu_answer_add">Add</string>
     
     <string name="name_question_activity">Questions</string>

@@ -70,30 +70,15 @@ public class EditItemQuestionActivity extends Activity {
 							Toast.LENGTH_SHORT).show();
 					return;
 				}
-				try {
-					if (editItem
-							.getText()
-							.toString()
-							.equals(qm.findQuestionById(questionId)
-									.getQuestion().toString())) {
-						Toast.makeText(
-								getApplicationContext(),
-								"Before saving, you need to change the question field!",
-								Toast.LENGTH_SHORT).show();
-						return;
-					} else {
-						qm.updateQuestion(questionId, editItem.getText()
-								.toString());
-						Toast.makeText(getApplicationContext(),
-								"Question changed successfully!",
-								Toast.LENGTH_SHORT).show();
-						finish();
-					}
-				} catch (SQLException e) {
-					Log.e(EditItemQuestionActivity.class.getName(),
-							e.getMessage(), e);
-				}
-
+				qm.updateQuestion(questionId, editItem.getText().toString());
+				Toast.makeText(getApplicationContext(),
+						"Question changed successfully!", Toast.LENGTH_SHORT)
+						.show();
+				Log.d("Test", "lengt "+ editItem.getText().length());
+				Intent inten = new Intent(EditItemQuestionActivity.this,
+						QuestionEditActivity.class);
+				startActivity(inten);
+				finish();
 			}
 		});
 		dialog.setNegativeButton("Cancel", new OnClickListener() {
@@ -126,11 +111,46 @@ public class EditItemQuestionActivity extends Activity {
 					}
 					qm.removeQuestionAtId(questionId);
 					am.removeByQuestionId(questionId);
+					Intent inten = new Intent(EditItemQuestionActivity.this,
+							QuestionEditActivity.class);
+					startActivity(inten);
 					finish();
 				} catch (SQLException e) {
 					Log.e(EditItemQuestionActivity.class.getName(),
 							e.getMessage(), e);
 				}
+			}
+		});
+		dialog.setNegativeButton("Cancel", new OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		dialog.show();
+	}
+
+	@Override
+	public void onBackPressed() {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+		dialog.setTitle("Save Question?");
+		dialog.setPositiveButton("Save", new OnClickListener() {
+			@Override
+			public void onClick(DialogInterface arg0, int arg1) {
+				if (editItem.getText().length() == 0) {
+					Toast.makeText(getApplicationContext(),
+							"Field is empty, type a question!",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				qm.updateQuestion(questionId, editItem.getText().toString());
+				Toast.makeText(getApplicationContext(),
+						"Question changed successfully!", Toast.LENGTH_SHORT)
+						.show();
+				Intent inten = new Intent(EditItemQuestionActivity.this,
+						QuestionEditActivity.class);
+				startActivity(inten);
+				finish();
 			}
 		});
 		dialog.setNegativeButton("Cancel", new OnClickListener() {
@@ -159,9 +179,34 @@ public class EditItemQuestionActivity extends Activity {
 			finish();
 			break;
 		case android.R.id.home:
-			Intent inten = new Intent(this, QuestionEditActivity.class);
-			startActivity(inten);
-			finish();
+			AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+			dialog.setTitle("Save Question?");
+			dialog.setPositiveButton("Save", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					if (editItem.getText().length() == 0) {
+						Toast.makeText(getApplicationContext(),
+								"Field is empty, type a question!",
+								Toast.LENGTH_SHORT).show();
+						return;
+					}
+					qm.updateQuestion(questionId, editItem.getText().toString());
+					Toast.makeText(getApplicationContext(),
+							"Question changed successfully!", Toast.LENGTH_SHORT)
+							.show();
+					Intent inten = new Intent(EditItemQuestionActivity.this,
+							QuestionEditActivity.class);
+					startActivity(inten);
+					finish();
+				}
+			});
+			dialog.setNegativeButton("Cancel", new OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
 			break;
 		}
 		return true;

@@ -48,26 +48,25 @@ public final class R {
         public static final int movingcube9=0x7f020018;
     }
     public static final class id {
-        public static final int answer_adapter_tv=0x7f09000c;
+        public static final int answer_adapter_tv=0x7f09000b;
         public static final int answer_list=0x7f090000;
         public static final int btn_answer_delete=0x7f090003;
         public static final int btn_answer_save=0x7f090002;
         public static final int btn_question_delete=0x7f090006;
         public static final int btn_question_save=0x7f090005;
-        public static final int checkbox=0x7f09000e;
+        public static final int checkbox=0x7f09000d;
         public static final int edit_answer_text=0x7f090001;
         public static final int edit_question_text=0x7f090004;
-        public static final int get_value=0x7f09000a;
         public static final int img_cube=0x7f090008;
-        public static final int menu_answer=0x7f090010;
-        public static final int menu_answer_add=0x7f090011;
-        public static final int menu_question_edit=0x7f090013;
-        public static final int menu_question_edit_add=0x7f090014;
-        public static final int menu_settings=0x7f090012;
-        public static final int question_adapter_tv=0x7f09000d;
-        public static final int question_edit_list=0x7f09000b;
+        public static final int menu_answer=0x7f09000f;
+        public static final int menu_answer_add=0x7f090010;
+        public static final int menu_question_edit=0x7f090012;
+        public static final int menu_question_edit_add=0x7f090013;
+        public static final int menu_settings=0x7f090011;
+        public static final int question_adapter_tv=0x7f09000c;
+        public static final int question_edit_list=0x7f09000a;
         public static final int question_list=0x7f090009;
-        public static final int question_tv=0x7f09000f;
+        public static final int question_tv=0x7f09000e;
         public static final int result=0x7f090007;
     }
     public static final class layout {
