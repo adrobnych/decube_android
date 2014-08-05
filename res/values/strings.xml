@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Decube</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_question_edit">Edit</string>
+    <string name="menu_question_edit_add">Add</string>
+    <string name="menu_answer">Answer</string>
+    <string name="menu_answer_add">Add</string>
+    
+    <string name="name_question_activity">Questions</string>
+    <string name="name_question_edit_activity">Questions Edit</string>
+    <string name="name_edit_item_question_activity">Questions Settings</string>
+    <string name="name_answer_activity">Answer</string>
+    <string name="name_edit_item_answer_activity">Answer Settings</string>
+    
+
+</resources>

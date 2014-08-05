@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.droidbrew.decube"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:name="DecubeApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_decube"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.droidbrew.decube.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.droidbrew.decube.QuestionActivity"
+            android:label="@string/name_question_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.droidbrew.decube.QuestionEditActivity"
+            android:label="@string/name_question_edit_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.droidbrew.decube.EditItemQuestionActivity"
+            android:label="@string/name_edit_item_question_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.droidbrew.decube.AnswerActivity"
+            android:label="@string/name_answer_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.droidbrew.decube.EditItemAnswerActivity"
+            android:label="@string/name_edit_item_answer_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>
