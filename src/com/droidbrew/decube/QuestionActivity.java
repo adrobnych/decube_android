@@ -13,7 +13,6 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -22,8 +21,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,14 +61,15 @@ public class QuestionActivity extends Activity {
 	public void resHome() {
 		if (questionCheckAdapter.getState().size() == 0) {
 			final AlertDialog.Builder build = new AlertDialog.Builder(this);
-			build.setTitle("You must select at least one question");
-			build.setNegativeButton("Ok", new OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-				}
-			});
+			build.setTitle(getString(R.string.question_activity_dialogBack_title));
+			build.setNegativeButton(
+					getString(R.string.question_activity_dialogBack_pBut),
+					new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+						}
+					});
 			build.show();
-
 			return;
 		}
 
@@ -85,7 +83,7 @@ public class QuestionActivity extends Activity {
 				if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
 					Toast.makeText(
 							getApplicationContext(),
-							"You have chosen a question which does not have a response. Please enter the answer or choose another question.",
+							getString(R.string.question_activity_dialogBack_verification_null),
 							Toast.LENGTH_LONG).show();
 					return;
 				}
@@ -95,7 +93,6 @@ public class QuestionActivity extends Activity {
 				Log.e(QuestionActivity.class.getName(), e.getMessage(), e);
 			}
 			a++;
-
 		}
 		Intent intent = new Intent(QuestionActivity.this, HomeActivity.class);
 		intent.putExtra("ids", ids);

@@ -49,6 +49,11 @@
             android:label="@string/name_edit_item_answer_activity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.droidbrew.decube.LanguageActivity"
+            android:label="@string/name_language_activity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

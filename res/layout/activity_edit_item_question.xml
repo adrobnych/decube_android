@@ -14,8 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="10dp" >
+        android:layout_margin="10dp"
+        android:layout_weight="1" >
 
         <EditText
             android:id="@+id/edit_question_text"
@@ -35,23 +35,23 @@
 
         <Button
             android:id="@+id/btn_question_save"
+            style="@style/btnStyleShakespeare"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            style="@style/btnStyleShakespeare"
             android:layout_weight="1"
             android:onClick="onSaveQuestionClick"
-            android:text="Save" />
+            android:text="@string/but_save" />
 
         <Button
             android:id="@+id/btn_question_delete"
+            style="@style/btnStyleShakespeare"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            style="@style/btnStyleShakespeare"
             android:layout_weight="1"
             android:onClick="onDeleteQuestionClick"
-            android:text="Delete" />
+            android:text="@string/but_delete" />
     </LinearLayout>
 
 </LinearLayout>

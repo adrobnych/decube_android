@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Decube</string>
+    <string name="menu_settings">Вопросы</string>
+    <string name="menu_lang">Язык</string>
+    <string name="menu_question_edit">Редактировать</string>
+    <string name="menu_question_edit_add">Добавить</string>
+    <string name="menu_answer">Ответы</string>
+    <string name="menu_answer_add">Добавить</string>
+    <string name="name_question_activity">Вопросы</string>
+    <string name="name_question_edit_activity">Редактировать вопросы</string>
+    <string name="name_edit_item_question_activity">Настройки вопроса</string>
+    <string name="name_language_activity">Настройки языка</string>
+    <string name="name_answer_activity">Ответы</string>
+    <string name="name_edit_item_answer_activity">Настройки ответа</string>
+    
+    <string name="but_save">Сохранить</string>
+    <string name="but_delete">Удалить</string>
+    <string name="enrestart">Английский</string>
+    <string name="rurestart">Русский</string>
+
+    <!-- HomeActivity -->
+    <string name="home_activity_start_webwiew_text">Встряхни, чтобы получить ответы</string>
+
+    <!-- AnswerActivity -->
+    <string name="answer_activity_addAnswer_hint">Введите ответ</string>
+    <string name="answer_activity_addAnswer_title">Новый ответ</string>
+    <string name="answer_activity_addAnswer_masage">Добавить ответ</string>
+    <string name="answer_activity_addAnswer_pBut">Добавить</string>
+    <string name="answer_activity_addAnswer_nBut">Отмена</string>
+
+    <!-- EditItemAnswerActivity -->
+    <string name="editAnswer_activity_dialigSaveAnswer_title">Сохранить oтвет?</string>
+    <string name="editAnswer_activity_dialigSaveAnswer_pBut">Сохранить</string>
+    <string name="editAnswer_activity_dialigSaveAnswer_verification_null">Поле не заполнено, введите ответ! </string>
+	<string name="editAnswer_activity_dialigSaveAnswer_verification_save">Ответ успешно изменен!</string>
+    <string name="editAnswer_activity_dialigSaveAnswer_nBut">Отмена</string>
+    <string name="editAnswer_activity_dialigDeleteAnswer_title">Удалить ответ:</string>
+    <string name="editAnswer_activity_dialigDeleteAnswer_pBut">Удалить</string>
+    <string name="editAnswer_activity_dialigDeleteAnswer_nBut">Отмена</string>
+    
+    <!-- EditItemAnswerActivity -->
+	<string name="editQuestion_activity_dialigSave_title">Сохранить вопрос?</string>
+	<string name="editQuestion_activity_dialigSave_pBut">Сохранить</string>
+	<string name="editQuestion_activity_dialigSave_verification_null">Поле не заполнено, введите вопрос!</string>
+	<string name="editQuestion_activity_dialigSave_verification_save">Вопрос успешно изменен!</string>
+	<string name="editQuestion_activity_dialigSave_nBut">Отмена</string>
+	<string name="editQuestion_activity_dialigDelete_title">Удалить вопрос:</string>
+	<string name="editQuestion_activity_dialigDelete_pBut">Удалить</string>
+	<string name="editQuestion_activity_dialigDelete_nBut">Отмена</string>
+	<string name="editQuestion_activity_dialigDelete_verification">Должен быть по крайней мере один вопрос</string>
+	
+	<!-- QuestionActivity -->
+	<string name="question_activity_dialogBack_title">Вы должны выбрать хотя бы один вопрос</string>
+	<string name="question_activity_dialogBack_pBut">Ok</string>
+	<string name="question_activity_dialogBack_verification_null">Вы выбрали вопрос, который не имеет ответа. Пожалуйста, введите ответ или выберите другой вопрос.</string>
+	
+	<!-- QuestionEditActivity -->
+	<string name="questionEdit_activity_dialogAdd_hint">Введите вопрос</string>
+	<string name="questionEdit_activity_dialogAdd_title">Новый вопрос</string>
+	<string name="questionEdit_activity_dialogAdd_masage">Добавить вопрос</string>
+	<string name="questionEdit_activity_dialogAdd_pBut">Добавить</string>
+	<string name="questionEdit_activity_dialogAdd_nBut">Отмена</string>
+	
+	
+</resources>

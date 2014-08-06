@@ -2,14 +2,12 @@ package com.droidbrew.decube;
 
 import java.sql.SQLException;
 
-import com.droidbrew.decube.model.Answer;
 import com.droidbrew.decube.model.AnswerManager;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
@@ -56,112 +54,93 @@ public class EditItemAnswerActivity extends Activity {
 		}
 	}
 
-	public void onSaveAnswerClick(View view) {
-
+	public void dialogSaweAnswer() {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-		dialog.setTitle("Save Answer? ");
-		dialog.setPositiveButton("Save", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				if (answerEditText.getText().length() == 0) {
-					Toast.makeText(getApplicationContext(),
-							"Field is empty, type a answer!",
-							Toast.LENGTH_SHORT).show();
-					return;
-				}
-				am.updateAnswer(answerId, answerEditText.getText().toString());
-				Toast.makeText(getApplicationContext(),
-						"Answer changed successfully!", Toast.LENGTH_SHORT)
-						.show();
-				Intent intent = new Intent(EditItemAnswerActivity.this,
-						AnswerActivity.class);
-				intent.putExtra("questionId", questionId);
-				intent.putExtra("answerId", answerId);
-				startActivity(intent);
-				finish();
-
-			}
-		});
-		dialog.setNegativeButton("Cancel", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
+		dialog.setTitle(getString(R.string.editAnswer_activity_dialigSaveAnswer_title));
+		dialog.setPositiveButton(
+				getString(R.string.editAnswer_activity_dialigSaveAnswer_pBut),
+				new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						if (answerEditText.getText().length() == 0) {
+							Toast.makeText(
+									getApplicationContext(),
+									getString(R.string.editAnswer_activity_dialigSaveAnswer_verification_null),
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
+						am.updateAnswer(answerId, answerEditText.getText()
+								.toString());
+						Toast.makeText(
+								getApplicationContext(),
+								getString(R.string.editAnswer_activity_dialigSaveAnswer_verification_save),
+								Toast.LENGTH_SHORT).show();
+						Intent intent = new Intent(EditItemAnswerActivity.this,
+								AnswerActivity.class);
+						intent.putExtra("questionId", questionId);
+						intent.putExtra("answerId", answerId);
+						startActivity(intent);
+						finish();
+					}
+				});
+		dialog.setNegativeButton(
+				getString(R.string.editAnswer_activity_dialigSaveAnswer_nBut),
+				new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
 		dialog.show();
+	}
 
+	public void onSaveAnswerClick(View view) {
+		dialogSaweAnswer();
 	}
 
 	public void onDeleteAnswerClick(View view) {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-		dialog.setTitle("Delete Answer: ");
+		dialog.setTitle(getString(R.string.editAnswer_activity_dialigDeleteAnswer_title));
 		try {
 			dialog.setMessage(am.findAnswerById(answerId).getAnswer()
 					.toString());
 		} catch (SQLException e) {
 			Log.e(EditItemAnswerActivity.class.getName(), e.getMessage(), e);
 		}
-		dialog.setPositiveButton("Delete", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				try {
-					am.removeAnswerAtId(answerId);
-					Intent intent = new Intent(EditItemAnswerActivity.this,
-							AnswerActivity.class);
-					intent.putExtra("questionId", questionId);
-					intent.putExtra("answerId", answerId);
-					startActivity(intent);
-					finish();
-				} catch (SQLException e) {
-					Log.e(EditItemAnswerActivity.class.getName(),
-							e.getMessage(), e);
-				}
-			}
-		});
-		dialog.setNegativeButton("Cancel", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
+		dialog.setPositiveButton(
+				getString(R.string.editAnswer_activity_dialigDeleteAnswer_pBut),
+				new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						try {
+							am.removeAnswerAtId(answerId);
+							Intent intent = new Intent(
+									EditItemAnswerActivity.this,
+									AnswerActivity.class);
+							intent.putExtra("questionId", questionId);
+							intent.putExtra("answerId", answerId);
+							startActivity(intent);
+							finish();
+						} catch (SQLException e) {
+							Log.e(EditItemAnswerActivity.class.getName(),
+									e.getMessage(), e);
+						}
+					}
+				});
+		dialog.setNegativeButton(
+				getString(R.string.editAnswer_activity_dialigDeleteAnswer_nBut),
+				new OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
 		dialog.show();
 	}
 
 	@Override
 	public void onBackPressed() {
-
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-		dialog.setTitle("Save Answer? ");
-		dialog.setPositiveButton("Save", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				if (answerEditText.getText().length() == 0) {
-					Toast.makeText(getApplicationContext(),
-							"Field is empty, type a answer!",
-							Toast.LENGTH_SHORT).show();
-					return;
-				}
-				am.updateAnswer(answerId, answerEditText.getText().toString());
-				Toast.makeText(getApplicationContext(),
-						"Answer changed successfully!", Toast.LENGTH_SHORT)
-						.show();
-				Intent intent = new Intent(EditItemAnswerActivity.this,
-						AnswerActivity.class);
-				intent.putExtra("questionId", questionId);
-				intent.putExtra("answerId", answerId);
-				startActivity(intent);
-				finish();
-
-			}
-		});
-		dialog.setNegativeButton("Cancel", new OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
-		dialog.show();
-
+		dialogSaweAnswer();
 	}
 
 	@Override
@@ -174,40 +153,7 @@ public class EditItemAnswerActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-
-			AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-			dialog.setTitle("Save Answer? ");
-			dialog.setPositiveButton("Save", new OnClickListener() {
-				@Override
-				public void onClick(DialogInterface arg0, int arg1) {
-					if (answerEditText.getText().length() == 0) {
-						Toast.makeText(getApplicationContext(),
-								"Field is empty, type a answer!",
-								Toast.LENGTH_SHORT).show();
-						return;
-					}
-					am.updateAnswer(answerId, answerEditText.getText().toString());
-					Toast.makeText(getApplicationContext(),
-							"Answer changed successfully!", Toast.LENGTH_SHORT)
-							.show();
-					Intent intent = new Intent(EditItemAnswerActivity.this,
-							AnswerActivity.class);
-					intent.putExtra("questionId", questionId);
-					intent.putExtra("answerId", answerId);
-					startActivity(intent);
-					finish();
-
-				}
-			});
-			dialog.setNegativeButton("Cancel", new OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.dismiss();
-				}
-			});
-			dialog.show();
-
-
+			dialogSaweAnswer();
 			break;
 		}
 		return true;

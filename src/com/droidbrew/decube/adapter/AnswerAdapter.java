@@ -59,7 +59,6 @@ public class AnswerAdapter extends BaseAdapter {
 			viewHolder = new ViewHolder();
 			viewHolder.tv = (TextView) view
 					.findViewById(R.id.answer_adapter_tv);
-
 			view.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) view.getTag();

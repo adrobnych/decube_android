@@ -71,7 +71,7 @@ public class AnswerActivity extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		Intent intent = new Intent(this, EditItemQuestionActivity.class);
@@ -104,33 +104,38 @@ public class AnswerActivity extends Activity {
 
 	public void AddAnswer() {
 		final EditText answerEditText = new EditText(this);
-		answerEditText.setHint("Enter a answer");
+		answerEditText
+				.setHint(getString(R.string.answer_activity_addAnswer_hint));
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-		dialog.setTitle("Add new answer");
-		dialog.setMessage("Add answer");
+		dialog.setTitle(getString(R.string.answer_activity_addAnswer_title));
+		dialog.setMessage(getString(R.string.answer_activity_addAnswer_masage));
 		dialog.setView(answerEditText);
-		dialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+		dialog.setPositiveButton(
+				getString(R.string.answer_activity_addAnswer_pBut),
+				new DialogInterface.OnClickListener() {
 
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				if (answerEditText.getText().toString().equals("")) {
-					return;
-				}
-				try {
-					answerDao.create(new Answer(questionId, answerEditText
-							.getText().toString()));
-				} catch (SQLException e) {
-					Log.e(AnswerActivity.class.getName(), e.getMessage(), e);
-				}
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if (answerEditText.getText().toString().equals("")) {
+							return;
+						}
+						try {
+							answerDao.create(new Answer(questionId,
+									answerEditText.getText().toString()));
+						} catch (SQLException e) {
+							Log.e(AnswerActivity.class.getName(),
+									e.getMessage(), e);
+						}
 
-				Intent intent = new Intent(AnswerActivity.this,
-						AnswerActivity.class);
-				intent.putExtra("questionId", questionId);
-				startActivity(intent);
-				finish();
-			}
-		});
-		dialog.setNegativeButton("Cancel",
+						Intent intent = new Intent(AnswerActivity.this,
+								AnswerActivity.class);
+						intent.putExtra("questionId", questionId);
+						startActivity(intent);
+						finish();
+					}
+				});
+		dialog.setNegativeButton(
+				getString(R.string.answer_activity_addAnswer_nBut),
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {

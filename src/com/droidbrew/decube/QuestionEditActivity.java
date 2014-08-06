@@ -68,13 +68,14 @@ public class QuestionEditActivity extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		Intent intent = new Intent(this, QuestionActivity.class);
 		startActivity(intent);
 		finish();
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_question_edit, menu);
@@ -98,33 +99,38 @@ public class QuestionEditActivity extends Activity {
 
 	public void AddQuestionDialog() {
 		final EditText questionEditText = new EditText(this);
-		questionEditText.setHint("Enter a question");
+		questionEditText
+				.setHint(getString(R.string.questionEdit_activity_dialogAdd_hint));
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-		dialog.setTitle("Add new question");
-		dialog.setMessage("Add question");
+		dialog.setTitle(getString(R.string.questionEdit_activity_dialogAdd_title));
+		dialog.setMessage(getString(R.string.questionEdit_activity_dialogAdd_masage));
 		dialog.setView(questionEditText);
-		dialog.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-			@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				if (questionEditText.getText().toString().equals("")) {
-					return;
-				}
-				try {
-					String str = questionEditText.getText().toString();
-					if(!str.substring(str.length() - 1, str.length()).equals("?"))
-						str += "?";
-					questionDao.create(new Question(str));
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				Intent intent = new Intent(QuestionEditActivity.this,
-						QuestionEditActivity.class);
-				startActivity(intent);
-				finish();
-			}
-		});
-		dialog.setNegativeButton("Cancel",
+		dialog.setPositiveButton(
+				getString(R.string.questionEdit_activity_dialogAdd_pBut),
+				new DialogInterface.OnClickListener() {
+					@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						if (questionEditText.getText().toString().equals("")) {
+							return;
+						}
+						try {
+							String str = questionEditText.getText().toString();
+							if (!str.substring(str.length() - 1, str.length())
+									.equals("?"))
+								str += "?";
+							questionDao.create(new Question(str));
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+						Intent intent = new Intent(QuestionEditActivity.this,
+								QuestionEditActivity.class);
+						startActivity(intent);
+						finish();
+					}
+				});
+		dialog.setNegativeButton(
+				getString(R.string.questionEdit_activity_dialogAdd_nBut),
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {

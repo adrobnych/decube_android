@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/enrestart" android:key="enrestart"></PreferenceScreen>
+    <PreferenceScreen android:title="@string/rurestart" android:key="rurestart"></PreferenceScreen>
+</PreferenceScreen>

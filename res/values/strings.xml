@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">Decube</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Questions</string>
+    <string name="menu_lang">Language</string>
     <string name="menu_question_edit">Edit</string>
     <string name="menu_question_edit_add">Add</string>
     <string name="menu_answer">Answers</string>
@@ -12,8 +12,56 @@
     <string name="name_question_activity">Questions</string>
     <string name="name_question_edit_activity">Questions Edit</string>
     <string name="name_edit_item_question_activity">Questions Settings</string>
+    <string name="name_language_activity">Language Settings</string>
     <string name="name_answer_activity">Answer</string>
     <string name="name_edit_item_answer_activity">Answer Settings</string>
     
-
+    <string name="but_save">Save</string>
+    <string name="but_delete">Delete</string>
+    <string name="enrestart">English</string>
+    <string name="rurestart">Russian</string>
+    
+    <!-- HomeActivity -->
+    <string name="home_activity_start_webwiew_text">Shake to get answers</string>
+    
+    <!-- AnswerActivity -->
+    <string name="answer_activity_addAnswer_hint">Enter a answer</string>
+    <string name="answer_activity_addAnswer_title">New answer</string>
+    <string name="answer_activity_addAnswer_masage">Add answer</string>
+    <string name="answer_activity_addAnswer_pBut">Add</string>
+    <string name="answer_activity_addAnswer_nBut">Cancel</string>
+    
+    <!-- EditItemAnswerActivity -->
+	<string name="editAnswer_activity_dialigSaveAnswer_title">Save Answer?</string>
+	<string name="editAnswer_activity_dialigSaveAnswer_pBut">Save</string>
+	<string name="editAnswer_activity_dialigSaveAnswer_verification_null">Field is empty, type a answer!</string>
+    <string name="editAnswer_activity_dialigSaveAnswer_verification_save">Answer changed successfully!</string>
+	<string name="editAnswer_activity_dialigSaveAnswer_nBut">Cancel</string>
+	<string name="editAnswer_activity_dialigDeleteAnswer_title">Delete Answer:</string>
+	<string name="editAnswer_activity_dialigDeleteAnswer_pBut">Delete</string>
+	<string name="editAnswer_activity_dialigDeleteAnswer_nBut">Cancel</string>
+	
+	<!-- EditItemAnswerActivity -->
+	<string name="editQuestion_activity_dialigSave_title">Save Question?</string>
+	<string name="editQuestion_activity_dialigSave_pBut">Save</string>
+	<string name="editQuestion_activity_dialigSave_verification_null">Field is empty, type a question!</string>
+	<string name="editQuestion_activity_dialigSave_verification_save">Question changed successfully!</string>
+	<string name="editQuestion_activity_dialigSave_nBut">Cancel</string>
+	<string name="editQuestion_activity_dialigDelete_title">Delete Question:</string>
+	<string name="editQuestion_activity_dialigDelete_pBut">Delete</string>
+	<string name="editQuestion_activity_dialigDelete_nBut">Cancel</string>
+	<string name="editQuestion_activity_dialigDelete_verification">There must be at least one question</string>
+	
+	<!-- QuestionActivity -->
+	<string name="question_activity_dialogBack_title">You must select at least one question</string>
+	<string name="question_activity_dialogBack_pBut">Ok</string>
+	<string name="question_activity_dialogBack_verification_null">You have chosen a question which does not have a response. Please enter the answer or choose another question.</string>
+	
+	<!-- QuestionEditActivity -->
+	<string name="questionEdit_activity_dialogAdd_hint">Enter a question</string>
+	<string name="questionEdit_activity_dialogAdd_title">New question</string>
+	<string name="questionEdit_activity_dialogAdd_masage">Add question</string>
+	<string name="questionEdit_activity_dialogAdd_pBut">Add</string>
+	<string name="questionEdit_activity_dialogAdd_nBut">Cancel</string>
+    
 </resources>
