@@ -61,4 +61,67 @@ public class DecubeQuestionManagerSpec {
 		}
 	}
 
+	@Test
+	public void getDataQuestion() {
+		Question data1 = new Question("Which animal buy?");
+		Question data2 = new Question("What to drink?");
+		Question data3 = new Question("Where do I go?");
+		
+		try {
+			questionDao.create(data1);
+			questionDao.create(data2);
+			questionDao.create(data3);
+			qm.setDataQuestionDao(questionDao);
+			
+			assertEquals(3, qm.getDataQuestion().size());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void removeQuestionAtId() {
+		Question data1 = new Question("Which animal buy?");
+		
+		try {
+			questionDao.create(data1);
+			qm.setDataQuestionDao(questionDao);
+			qm.removeQuestionAtId(1);
+			assertEquals(0, qm.getDataQuestion().size());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void findQuestionById() {
+		Question data1 = new Question("Which animal buy?");
+		Question data2 = new Question("What to drink?");
+		Question data3 = new Question("Where do I go?");
+		
+		try {
+			questionDao.create(data1);
+			questionDao.create(data2);
+			questionDao.create(data3);
+			qm.setDataQuestionDao(questionDao);
+			assertEquals("What to drink?", qm.findQuestionById(2).getQuestion());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void updateQuestion() {
+		Question data1 = new Question("Which animal buy?");
+		String upQuestion = "Up Which animal buy?";
+		
+		try {
+			questionDao.create(data1);
+			qm.setDataQuestionDao(questionDao);
+			qm.updateQuestion(1, upQuestion);
+			assertEquals("Up Which animal buy?", qm.findQuestionById(1).getQuestion());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
